@@ -8,4 +8,4 @@ The whole thing is a single ~350-line Python script with no daemon and no backgr
 Run `./setup.sh` to install — X11 only, and the hotkeys bind themselves on XFCE.
 
 You can tell your coding agent to set this up for you and also to adjust it in whichever way you want.
-Maybe use different models? or skip the cleanup for more speed? Just tell your agent.
+Maybe you want to use different models? Or skip the cleanup step for increased speed? Just tell your agent.
