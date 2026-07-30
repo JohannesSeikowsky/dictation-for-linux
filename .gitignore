@@ -1,0 +1,13 @@
+myenv/
+.env
+__pycache__/
+*.pyc
+
+# Your own bias terms — setup.sh copies vocab.example.txt here on first run
+vocab.txt
+
+# editor / local tooling
+*.swp
+*.swo
+.claude/
+.mcp.json

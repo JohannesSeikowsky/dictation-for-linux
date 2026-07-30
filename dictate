@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Wrapper so the venv python is always used, from any working directory.
+DIR="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
+exec "$DIR/myenv/bin/python" "$DIR/dictate.py" "$@"

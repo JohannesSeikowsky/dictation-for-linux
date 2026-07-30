@@ -1,0 +1,14 @@
+# Terms the recogniser should bias towards. One per line; comments start with #.
+# Copied to vocab.txt on first setup — edit that file, not this one.
+#
+# Put in the words it keeps getting wrong: names of people you dictate about,
+# project and product names, libraries, jargon from your field. Keep it short
+# (a few dozen at most) — it is sent along with every transcription request.
+Claude Code
+Anthropic
+ElevenLabs
+Python
+PostgreSQL
+pytest
+venv
+xdotool
