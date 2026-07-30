@@ -231,7 +231,15 @@ def clean(text):
 
 
 def inject(text):
-    """Put the text into the currently focused window."""
+    """Put the text into the currently focused window.
+
+    X11 only: both paths below rely on xdotool synthesising key events, which Wayland forbids
+    by design. To support Wayland, add a branch here that shells out to `ydotool` (writes to
+    /dev/uinput instead) when os.environ["XDG_SESSION_TYPE"] == "wayland", and use wl-clipboard
+    in place of xclip. ydotool needs its daemon running and access to /dev/uinput, so setup.sh
+    would also need a udev rule or a group membership. Untested — check the ydotool docs rather
+    than trusting this comment for exact flags.
+    """
     if INJECT == "clipboard" and shutil.which("xclip"):
         subprocess.run(["xclip", "-selection", "clipboard"], input=text.encode(), check=False)
         subprocess.run(["xdotool", "key", "--clearmodifiers", "ctrl+v"], check=False)

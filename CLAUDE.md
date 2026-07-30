@@ -94,6 +94,14 @@ dev machine; recheck with a real key before concluding anything.
 
 - **X11 only.** `xdotool` cannot type into other windows under Wayland. Developed on Linux Mint /
   XFCE / PipeWire, which is also the only desktop `setup.sh` can bind hotkeys on (`xfconf-query`).
+  **If the user is on Wayland, this is the fix:** swap `xdotool` for `ydotool` in `inject()`,
+  which injects via `/dev/uinput` rather than the X server, and `xclip` for `wl-clipboard`. Note
+  that clipboard mode does not dodge the problem — pasting still needs a synthesised Ctrl+V.
+  `ydotool` requires `ydotoold` running and access to `/dev/uinput`, so setup also needs a udev
+  rule or putting the user in the right group; that is the annoying part, not the code. Hotkey
+  binding will need the user's own compositor settings (GNOME `custom-keybindings`, KDE `kglobalshortcutsrc`)
+  instead of `xfconf-query`. None of this has ever been run — read the current `ydotool` docs
+  instead of trusting these details, and tell the user it is untested.
 - `DICTATE_INJECT=type` is the default because `xclip` is not installed everywhere. Clipboard
   injection is much faster for long text if you have it.
 - `myenv` is deliberately minimal (~70 MB): `httpx`, `anthropic`, `python-dotenv` and their
