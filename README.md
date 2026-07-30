@@ -7,5 +7,8 @@ ElevenLabs Scribe v2 transcribes it, Claude Haiku 4.5 does a clean up, and `xdot
 The whole thing is a single ~350-line Python script with no daemon and no background process.
 Run `./setup.sh` to install — X11 only, and the hotkeys bind themselves on XFCE.
 
+It does nothing until you add an ElevenLabs and an Anthropic API key to `.env`, and both cost
+money — around $0.09 a day at twenty minutes of dictation.
+
 You can tell your coding agent to set this up for you and also to adjust it in whichever way you want.
 Maybe you want to use different models? Or skip the cleanup step for increased speed? Just tell your agent.
